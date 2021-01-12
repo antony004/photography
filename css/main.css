@@ -1,77 +1,281 @@
 body {
-    min-height: 2000px;
-    background-color: #fafafa;
+  background-color: #fafafa;
 }
 
 footer {
-    text-align: center;
-    margin: 15px;
+  text-align: center;
+  margin: 15px;
 }
 
 .navbar-static-top {
-    margin-bottom: -20px;
-    background-color: #fafafa;
-    border-bottom-color: #f5f5f5;
+  margin-bottom: -20px;
+  background-color: #fafafa;
+  border-bottom-color: #f5f5f5;
 }
 
 .starter-template {
-    text-align: center;
-    background-color: #fafafa;
+  text-align: center;
+  background-color: #fafafa;
 }
 
 .starter-template hr {
-    border-top: 2px solid #9e9e9e;
-    width: 70%;
-    margin-top: 1px;
-   
+  border-top: 2px solid #9e9e9e;
+  width: 70%;
+  margin-top: 1px;
 }
 
 .starter-template h1 {
-    font-family: 'Quattrocento', serif;
-    font-size: 80px;
+  font-family: "Quattrocento", serif;
+  font-size: 80px;
 }
 
 .chickie {
-    padding-top: 0px;
+  padding-top: 0px;
 }
 
 .images {
-    margin-top: 80px;
+  margin-top: 80px;
 }
 
 .images img {
-    width: 100%;
-    margin-bottom: 60px;
-    box-shadow: 0px 10px 40px #e3f2fd;
+  width: 100%;
+  margin-bottom: 60px;
+  box-shadow: 0px 10px 40px #e3f2fd;
 }
 
 .images p {
-    text-align: right;
+  text-align: right;
 }
 
 .up-button {
-    text-align: right;
+  text-align: right;
 }
 
 #canvas {
-    background-color: white;
-    box-shadow: 0px 10px 40px #607d8b;
+  background-color: white;
+  box-shadow: 0px 10px 40px #607d8b;
 }
 
 #line2 {
-    width: 90%;
+  width: 90%;
 }
-
 
 #li-title {
-    padding-left: 10px;
-    color: black
+  padding-left: 10px;
+  color: black;
 }
-
 
 /* Small devices (tablets, 768px and up) */
 @media (max-width: 768px) {
-    .starter-template h1 {
-        font-size: 50px;
-    } 
+  .starter-template h1 {
+    font-size: 50px;
+  }
+}
+
+/* Custom fonts */
+@font-face {
+  font-family: Playball;
+  src: url(../fonts/Playball-Regular.ttf);
+}
+
+@font-face {
+  font-family: Yeseva;
+  src: url(../fonts/YesevaOne-Regular.ttf);
+}
+
+/* New Home CSS */
+.home-container {
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.home-container > .home-header {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 3.5em;
+  z-index: 3;
+  font-family: Playball;
+}
+
+/* Image container */
+.home-container .hc-1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s ease-in-out;
+}
+
+/* Hoverable area */
+.home-container .hc-2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+/* Hover animations */
+.home-container .hc-2:hover + .hc-1 {
+  transform: scale(1.02);
+}
+
+.home-container .hc-2:hover + .hc-1 > img {
+  filter: initial;
+}
+
+.home-container .hc-2:hover.hc-left > button {
+  transform: translateX(-30%);
+}
+
+.home-container .hc-2:hover.hc-top > button {
+  transform: translate(-50%, -30%);
+}
+
+.home-container .hc-2:hover.hc-right > button {
+  transform: translateX(-70%);
+}
+
+.home-container .hc-2:hover.hc-bot > button {
+  transform: translate(-50%, 30%);
+}
+
+/* Common image css */
+.home-container .hc-1 > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 1s ease-in-out, filter 1s;
+  filter: blur(10px) grayscale(100%);
+  backface-visibility: hidden;
+}
+
+/* Common button css */
+.home-container button {
+  position: relative;
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 2em;
+  transition: transform 0.3s ease-in-out;
+  font-family: Yeseva;
+}
+
+/* Left triangle */
+.hc-left {
+  clip-path: polygon(0 0, 0% 100%, 50% 50%);
+}
+
+.hc-left > img {
+  transform: translateX(-15%);
+}
+
+.hc-left > button {
+  top: calc(50% - 0.5em);
+  left: 25%;
+}
+
+/* Top triangle */
+.hc-top {
+  clip-path: polygon(100% 0, 0 0, 50% 50%);
+}
+
+.hc-top > img {
+  transform: translateY(-50%);
+}
+
+.hc-top > button {
+  top: calc(25% + 2em);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Right triangle */
+.hc-right {
+  clip-path: polygon(100% 0, 50% 50%, 100% 100%);
+}
+
+.hc-right > img {
+  transform: translateX(50%);
+}
+
+.hc-right > button {
+  top: calc(50% - 0.5em);
+  left: 75%;
+  transform: translateX(-100%);
+}
+
+/* Bottom triangle */
+.hc-bot {
+  clip-path: polygon(100% 100%, 50% 50%, 0 100%);
+}
+
+.hc-bot > img {
+  transform: translateY(50%);
+}
+
+.hc-bot > button {
+  top: calc(75% - 2em);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* White diag lines */
+.home-container > a > .diag {
+  position: absolute;
+  width: 25%;
+  height: 25%;
+  z-index: 1;
+  --line-width: 2px;
+}
+
+/* top-right */
+.tr-diag {
+  top: 25%;
+  right: 25%;
+  background: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0) calc(50% - var(--line-width)),
+    #fff,
+    rgba(0, 0, 0, 0) calc(50% + var(--line-width))
+  );
+}
+
+/* top-left */
+.tl-diag {
+  top: 25%;
+  left: 25%;
+  background: linear-gradient(
+    to top right,
+    rgba(0, 0, 0, 0) calc(50% - var(--line-width)),
+    #fff,
+    rgba(0, 0, 0, 0) calc(50% + var(--line-width))
+  );
+}
+
+/* bottom-right */
+.br-diag {
+  top: 50%;
+  right: 25%;
+  background: linear-gradient(
+    to bottom left,
+    rgba(0, 0, 0, 0) calc(50% - var(--line-width)),
+    #fff,
+    rgba(0, 0, 0, 0) calc(50% + var(--line-width))
+  );
+}
+
+/* bottom-left */
+.bl-diag {
+  top: 50%;
+  left: 25%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 0, 0, 0) calc(50% - var(--line-width)),
+    #fff,
+    rgba(0, 0, 0, 0) calc(50% + var(--line-width))
+  );
 }
