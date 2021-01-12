@@ -80,14 +80,25 @@ footer {
   height: 100vh;
 }
 
+@font-face {
+  font-family: Playball;
+  src: url(../fonts/Playball-Regular.ttf);
+}
+
+@font-face {
+  font-family: Yeseva;
+  src: url(../fonts/YesevaOne-Regular.ttf);
+}
+
 .home-container > .home-header {
   position: absolute;
   top: 5%;
   left: 50%;
   transform: translateX(-50%);
   color: white;
-  font-size: 3em;
+  font-size: 3.5em;
   z-index: 3;
+  font-family: Playball;
 }
 
 /* Image container */
@@ -108,7 +119,11 @@ footer {
 
 /* Hover animations */
 .home-container .hc-2:hover + .hc-1 {
-  transform: scale(1.1);
+  transform: scale(1.02);
+}
+
+.home-container .hc-2:hover + .hc-1 > img {
+  filter: initial;
 }
 
 .home-container .hc-2:hover.hc-left > button {
@@ -128,11 +143,13 @@ footer {
 }
 
 /* Common image css */
-.home-container > a > .hc-1 > img {
-  width: 100%;
+.home-container .hc-1 > img {
   height: 100%;
-  /* object-fit: contain; */
-  transition: transform 1s ease-in-out;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 1s ease-in-out, filter 2s;
+  filter: blur(10px) grayscale(100%);
+  backface-visibility: hidden;
 }
 
 /* Common button css */
@@ -143,6 +160,7 @@ footer {
   border: none;
   font-size: 2em;
   transition: transform 0.3s ease-in-out;
+  font-family: Yeseva;
 }
 
 /* Left triangle */
@@ -210,9 +228,10 @@ footer {
   width: 25%;
   height: 25%;
   z-index: 1;
-  --line-width: 1px;
+  --line-width: 2px;
 }
 
+/* top-right */
 .tr-diag {
   top: 25%;
   right: 25%;
@@ -224,6 +243,7 @@ footer {
   );
 }
 
+/* top-left */
 .tl-diag {
   top: 25%;
   left: 25%;
@@ -235,6 +255,7 @@ footer {
   );
 }
 
+/* bottom-right */
 .br-diag {
   top: 50%;
   right: 25%;
@@ -246,6 +267,7 @@ footer {
   );
 }
 
+/* bottom-left */
 .bl-diag {
   top: 50%;
   left: 25%;
