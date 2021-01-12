@@ -72,14 +72,7 @@ footer {
   }
 }
 
-/* new Home CSS */
-.home-container {
-  overflow: hidden;
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-}
-
+/* Custom fonts */
 @font-face {
   font-family: Playball;
   src: url(../fonts/Playball-Regular.ttf);
@@ -88,6 +81,14 @@ footer {
 @font-face {
   font-family: Yeseva;
   src: url(../fonts/YesevaOne-Regular.ttf);
+}
+
+/* New Home CSS */
+.home-container {
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
 }
 
 .home-container > .home-header {
@@ -147,7 +148,7 @@ footer {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  transition: transform 1s ease-in-out, filter 2s;
+  transition: transform 1s ease-in-out, filter 1s;
   filter: blur(10px) grayscale(100%);
   backface-visibility: hidden;
 }
