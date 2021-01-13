@@ -1,3 +1,5 @@
+@import "maint";
+
 body {
   background-color: #fafafa;
 }
@@ -84,14 +86,14 @@ footer {
 }
 
 /* New Home CSS */
-.home-container {
+#home-container {
   overflow: hidden;
   position: relative;
   width: 100vw;
   height: 100vh;
 }
 
-.home-container > .home-header {
+#home-container > .home-header {
   position: absolute;
   top: 5%;
   left: 50%;
@@ -103,7 +105,7 @@ footer {
 }
 
 /* Image container */
-.home-container .hc-1 {
+#home-container .hc-1 {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -111,7 +113,7 @@ footer {
 }
 
 /* Hoverable area */
-.home-container .hc-2 {
+#home-container .hc-2 {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -119,42 +121,42 @@ footer {
 }
 
 /* Hover animations */
-.home-container .hc-2:hover + .hc-1 {
+#home-container .hc-2:hover + .hc-1 {
   transform: scale(1.02);
 }
 
-.home-container .hc-2:hover + .hc-1 > img {
+#home-container .hc-2:hover + .hc-1 > img {
   filter: initial;
 }
 
-.home-container .hc-2:hover.hc-left > button {
+#home-container .hc-2:hover.hc-left > button {
   transform: translateX(-30%);
 }
 
-.home-container .hc-2:hover.hc-top > button {
+#home-container .hc-2:hover.hc-top > button {
   transform: translate(-50%, -30%);
 }
 
-.home-container .hc-2:hover.hc-right > button {
+#home-container .hc-2:hover.hc-right > button {
   transform: translateX(-70%);
 }
 
-.home-container .hc-2:hover.hc-bot > button {
+#home-container .hc-2:hover.hc-bot > button {
   transform: translate(-50%, 30%);
 }
 
 /* Common image css */
-.home-container .hc-1 > img {
+#home-container .hc-1 > img {
   height: 100%;
   width: 100%;
   object-fit: cover;
   transition: transform 1s ease-in-out, filter 1s;
-  filter: blur(2px) grayscale(60%);
+  filter: grayscale(60%);
   backface-visibility: hidden;
 }
 
 /* Common button css */
-.home-container button {
+#home-container a div button {
   position: relative;
   background-color: transparent;
   color: white;
@@ -224,7 +226,7 @@ footer {
 }
 
 /* White diag lines */
-.home-container > a > .diag {
+#home-container > a > .diag {
   position: absolute;
   width: 25%;
   height: 25%;
@@ -232,7 +234,7 @@ footer {
   --line-width: 2px;
 }
 
-/* top-right */
+/* top-right diag line*/
 .tr-diag {
   top: 25%;
   right: 25%;
@@ -244,7 +246,7 @@ footer {
   );
 }
 
-/* top-left */
+/* top-left diag line*/
 .tl-diag {
   top: 25%;
   left: 25%;
@@ -256,7 +258,7 @@ footer {
   );
 }
 
-/* bottom-right */
+/* bottom-right diag line*/
 .br-diag {
   top: 50%;
   right: 25%;
@@ -268,7 +270,7 @@ footer {
   );
 }
 
-/* bottom-left */
+/* bottom-left diag line*/
 .bl-diag {
   top: 50%;
   left: 25%;
@@ -278,4 +280,49 @@ footer {
     #fff,
     rgba(0, 0, 0, 0) calc(50% + var(--line-width))
   );
+}
+
+#about-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+#about-container > .ab-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  color: black;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 10px;
+  padding-bottom: 20px;
+}
+
+#about-container > .ab-inner > button {
+  align-self: flex-end;
+  background-color: transparent;
+  border: none;
+  font-size: 2em;
+}
+
+#about-container > .ab-inner > div {
+  margin-bottom: 10px;
+  font-family: "Quattrocento", serif;
+  font-size: 1.1em;
+}
+
+#about-container > .ab-inner > div:first-of-type {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.isHidden {
+  display: none !important;
 }

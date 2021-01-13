@@ -54,7 +54,7 @@
               <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="index.html">Portraits</a></li>
+                <li><a href="/">Portraits</a></li>
                 <li><a href="nature.html">Nature</a></li>
                 <li role="separator" class="divider"></li>
                 <li class="disabled"><a href="#">More Coming Soon</a></li>
@@ -72,7 +72,7 @@
       </div>        
     </div> -->
 
-    <div class='home-container'>
+    <div id="home-container">
       <div class='home-header'>J. Antony Photography</div>
 
       <a href='portraits.html'>
@@ -85,7 +85,7 @@
         <div class="diag tl-diag"></div>
       </a>
         
-      <a href='about.html'>
+      <a onclick="toggleAboutModal()">
         <div class='hc-2 hc-top'>
           <button>ABOUT</button>
         </div>
@@ -114,6 +114,17 @@
           </div>
         <div class="diag bl-diag"></div>
       </a>
+
+      <div id="about-container" class="isHidden">
+          <div class="ab-inner col-xs-11 col-md-6">
+            <button onclick="toggleAboutModal()">X</button>
+            <div class="col-xs-12 col-md-6">About text</div>
+            <div class="col-xs-12 col-md-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+            <div class="col-xs-12 col-md-6">Cras pulvinar mattis nunc sed blandit libero volutpat sed. Aliquam nulla facilisi cras fermentum odio. Integer eget aliquet nibh praesent tristique. </div>
+            <div class="col-xs-12 col-md-6">Aliquam ultrices sagittis orci a scelerisque purus semper.</div>
+            <div class="col-xs-12 col-md-6">Proin sagittis nisl rhoncus mattis rhoncus. At tellus at urna condimentum mattis pellentesque id nibh tortor.</div>
+        </div>
+      </div>
     
     </div>
      <footer>
@@ -130,6 +141,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/home.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
