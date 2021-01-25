@@ -1,31 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="Photographer located in the Northwest Chicago Suburbs">
-    <meta name="author" content="J. Antony">
-    <meta name="keywords" content="Wedding Photographer, Editorial Photographer, Fashion Photographer, near me, Glamour, Portraits, People, Nature, Landscapes">
-    <link rel="icon" href="../../favicon.ico">
+    <meta
+      name="description"
+      content="Photographer located in the Northwest Chicago Suburbs"
+    />
+    <meta name="author" content="J. Antony" />
+    <meta
+      name="keywords"
+      content="Wedding Photographer, Editorial Photographer, Fashion Photographer, near me, Glamour, Portraits, People, Nature, Landscapes"
+    />
+    <link rel="icon" href="../../favicon.ico" />
 
     <title>J. Antony Photography</title>
-      
+
     <!-- Quattrocento Google font -->
-    <link href="https://fonts.googleapis.com/css?family=Quattrocento:400,700" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Quattrocento:400,700"
+      rel="stylesheet"
+    />
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link
+      href="../../assets/css/ie10-viewport-bug-workaround.css"
+      rel="stylesheet"
+    />
 
     <!-- Custom styles for this template -->
-    <link href="css/main.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/blog.css" rel="stylesheet" />
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!--[if lt IE 9
+      ]><script src="../../assets/js/ie8-responsive-file-warning.js"></script
+    ><![endif]-->
     <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -35,60 +50,114 @@
     <![endif]-->
   </head>
 
-  <style>
-    body, html {
-      height: 100%;
-      margin: 0;
-    }
-    
-    .bgimg {
-      background-image: url('forestbridge.jpg');
-      height: 100%;
-      background-position: center;
-      background-size: cover;
-      position: relative;
-      color: white;
-      font-family: "Courier New", Courier, monospace;
-      font-size: 25px;
-    }
-    
-    .topleft {
-      position: absolute;
-      top: 0;
-      left: 16px;
-    }
-    
-    .bottomleft {
-      position: absolute;
-      bottom: 0;
-      left: 16px;
-    }
-    
-    .middle {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-    }
-    
-    hr {
-      margin: auto;
-      width: 40%;
-    }
-    </style>
-    <body>
-    
-    <div class="bgimg">
-      <div class="topleft">
-        <a class="navbar-brand chickie" href="/"><img src="images/logo.png"></a>
-    </div>
-      <div class="middle">
-        <h1>COMING SOON</h1>
-        <hr>
-        <p>very soon</p>
+  <body data-spy="scroll" data-target=".navbar-collapse">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle collapsed"
+            data-toggle="collapse"
+            data-target="#navbar"
+            aria-expanded="false"
+            aria-controls="navbar"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand chickie" href="/"
+            ><img src="images/logo.png"
+          /></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a
+                href="#"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Categories <span class="caret"></span
+              ></a>
+              <ul class="dropdown-menu">
+                <li><a href="/">Portraits</a></li>
+                <li><a href="nature.html">Nature</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="disabled"><a href="#">More Coming Soon</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="starter-template">
+        <h1>
+          <b>J. Antony <span>Photography</span></b>
+        </h1>
+        <hr />
       </div>
     </div>
-    
-    </body>
-  </html>
+    <!-- /.container -->
+
+    <nav class="timeline-nav">
+      <ul id="timeline-ul">
+        <!-- This is added dynamically -->
+        <!-- <li>Jan 21 2020</li> -->
+      </ul>
+    </nav>
+
+    <div class="blog-container" id="canvas">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1" id="blogs">
+          <!-- This is added dynamically -->
+          <!-- <div class="blog-wrapper row">
+            <h2>Jan 21 2020</h2>
+            <div class="col-md-7 ta-center">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+              <button onclick="onBlogReadMoreClicked()">
+                View full blog...
+              </button>
+            </div>
+            <div class="col-md-5">
+              <img class="hidden-xs" src="images/image-15.jpg" />
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <div id="back-to-top" class="up-button">
+        <a href="#">Back to Top</a>
+      </div>
+      <footer>
+        <p>
+          Copyright &copy;<a href="http://antonyrojas.com"> Antony R.</a> 2019
+        </p>
+      </footer>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+      window.jQuery ||
+        document.write(
+          '<script src="../../assets/js/vendor/jquery.min.js"><\/script>'
+        );
+    </script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/blog.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
