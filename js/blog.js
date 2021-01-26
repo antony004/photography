@@ -25,6 +25,17 @@ let myBlogs =
                 { filename: "image-22.jpg", caption: "22 image" },
                 { filename: "image-23.jpg", caption: "23 image" }
             ]
+        },
+
+        {
+            id: 2,
+            title: "My Third Blog",
+            date: "Jan 23 2020",
+            text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et magna vitae metus fermentum interdum. Nulla sapien turpis, ultricies sit amet tristique id, congue eu mauris. Donec fringilla leo a augue congue, non interdum lorem bibendum. Vivamus lobortis nulla mi, in auctor enim rutrum quis.Nunc luctus orci et mi cursus congue. Pellentesque ultrices mi vitae maximus ullamcorper.Aliquam neque lectus, aliquet sit amet scelerisque nec, facilisis in metus. Sed nec diam sed urna rutrum lobortis. Cras nunc libero, laoreet in nibh eu, dapibus dictum nunc.`,
+            coverImage: "image-24.jpg",
+            images: [
+                { filename: "image-24.jpg" },
+            ]
         }
     ];
 
@@ -51,12 +62,15 @@ function _addBlogsToDocument(myBlogs) {
     myBlogs.forEach(function (blog) {
         // Add date to timeline
         let blogTimelineDate = document.createElement('li');
+        blogTimelineDate.blogId = blog.id;
         blogTimelineDate.innerText = blog.date;
+        blogTimelineDate.onclick = onBlogNavClicked;
         timeline.appendChild(blogTimelineDate);
 
         // Now add blog
         // Create blog wrapper
         let blogWrapper = document.createElement('div');
+        blogWrapper.id = `b-${blog.id}`
         blogWrapper.className = 'blog-wrapper row';
         blogContainer.appendChild(blogWrapper);
         // Title
@@ -91,14 +105,16 @@ function _addBlogsToDocument(myBlogs) {
 
 
 function onBlogNavClicked(e) {
+    let clickedId = e.target.blogId;
+    let scrollToBlog = document.getElementById(`b-${clickedId}`);
+    scrollToBlog.scrollIntoView({ behavior: 'smooth', block: 'center' }); //https://usefulangle.com/post/156/javascript-scroll-to-element
 }
 
 function onBlogReadMoreClicked(e) {
-    console.log("Blog clicked");
+    // console.log("Blog clicked");
     let blogId = e.target.blogId;
-    console.log(e.target.blogId);
-    console.log(myBlogs[blogId])
-
+    // console.log(e.target.blogId);
+    // console.log(myBlogs[blogId])
     window.location.href = `blog-detail.html?blogId=${blogId}`;
 }
 

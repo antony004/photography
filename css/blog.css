@@ -33,18 +33,16 @@
   cursor: pointer;
   transition: all 0.3s ease-out;
 }
-.timeline-nav ul li.active {
+
+.timeline-nav ul li:hover {
   font-weight: bold;
   color: #f94125;
   border-bottom: 1px dotted transparent;
   transform: scale(1.2);
 }
-.timeline-nav ul li:hover {
-  color: #000;
-}
 
 .blog-wrapper {
-  padding-bottom: 20px;
+  padding: 20px 0;
   border-bottom: 1px solid rgba(10, 10, 10, 0.3);
   margin: unset;
 }
@@ -127,9 +125,7 @@
 
 .blog-detail-wrapper p {
   margin: 40px 0;
-}
-
-.blog-images-container {
+  text-align: left;
 }
 
 .blog-images-container .image-wrapper {
