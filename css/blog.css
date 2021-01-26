@@ -59,18 +59,18 @@
 }
 
 .blog-wrapper p {
-  max-height: 10.5em;
+  max-height: 11em;
   /* hide text if it more than N lines  */
   overflow: hidden;
   /* for set '...' in absolute position */
   position: relative;
   /* use this value to count block height */
-  line-height: 1.2em;
+  line-height: 1.4em;
   /* fix problem when last visible word doesn't adjoin right side  */
   text-align: justify;
   margin-right: -1em;
   padding-right: 1em;
-  /* font-size: 1.2em; */
+  font-size: 1.2em;
 }
 
 .blog-wrapper p:before {
@@ -121,43 +121,27 @@
   display: inline-block;
 }
 
-/* article {
-  position: relative;
-  max-width: 980px;
-  margin: 0 auto;
-}
-.timeline__nav {
-  position: fixed;
-  z-index: 99;
-  top: 0;
-  transition: top 0.3s ease-out;
-}
-.timeline__nav ul {
-  list-style: none;
-  list-style-position: inside;
-  margin: 15px 0;
-}
-.timeline__nav ul li {
-  margin: 15px 0;
-  padding-left: 0;
-  list-style-type: none;
-  color: #bfc1c3;
-  border-bottom: 1px dotted rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  transition: all 0.3s ease-out;
-}
-.timeline__nav ul li.active {
-  font-weight: bold;
-  color: #f94125;
-  border-bottom: 1px dotted transparent;
-  transform: scale(1.2);
-}
-.timeline__nav ul li:hover {
-  color: #000;
+.blog-detail-wrapper {
+  text-align: center;
 }
 
-.wrapper {
-  margin: 0 auto;
-  padding: 0 16.66% 50px;
+.blog-detail-wrapper p {
+  margin: 40px 0;
+}
+
+.blog-images-container {
+}
+
+.blog-images-container .image-wrapper {
   width: 100%;
-} */
+  margin-bottom: 80px;
+}
+
+.blog-images-container .image-wrapper img {
+  object-fit: contain;
+  width: 100%;
+}
+
+.blog-images-container .image-wrapper caption {
+  font-size: 1.2em;
+}

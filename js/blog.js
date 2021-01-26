@@ -1,23 +1,48 @@
-// Called when script is loaded
-$(() => {
-    let myBlogs = [];
-    myBlogs.push({
-        id: 0,
-        title: "My First Blog",
-        date: "Jan 21 2020",
-        text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-         Sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.
-         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-         Sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.
-         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-         Sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-        coverImage: "image-19.jpg",
-        images: [{ filename: "image-19.jpg", caption: "First image" }]
-    })
+let myBlogs =
+    [
+        {
+            id: 0,
+            title: "My First Blog",
+            date: "Jan 21 2020",
+            text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et magna vitae metus fermentum interdum. Nulla sapien turpis, ultricies sit amet tristique id, congue eu mauris. Donec fringilla leo a augue congue, non interdum lorem bibendum. Vivamus lobortis nulla mi, in auctor enim rutrum quis. Nunc luctus orci et mi cursus congue. Pellentesque ultrices mi vitae maximus ullamcorper. Aliquam neque lectus, aliquet sit amet scelerisque nec, facilisis in metus. Sed nec diam sed urna rutrum lobortis. `,
+            coverImage: "image-19.jpg",
+            images: [
+                { filename: "image-19.jpg", caption: "19 image" },
+                { filename: "image-20.jpg", caption: "20 image" }
+            ]
+        },
 
-    // Add HTML dynamically
+        {
+            id: 1,
+            title: "My Second Blog",
+            date: "Jan 22 2020",
+            text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et magna vitae metus fermentum interdum. Nulla sapien turpis, ultricies sit amet tristique id, congue eu mauris. Donec fringilla leo a augue congue, non interdum lorem bibendum. Vivamus lobortis nulla mi, in auctor enim rutrum quis.Nunc luctus orci et mi cursus congue. Pellentesque ultrices mi vitae maximus ullamcorper.Aliquam neque lectus, aliquet sit amet scelerisque nec, facilisis in metus. Sed nec diam sed urna rutrum lobortis. Cras nunc libero, laoreet in nibh eu, dapibus dictum nunc. Vivamus non euismod mauris, eu consectetur purus. Quisque volutpat et diam quis tempus.
+            
+            Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin porttitor tempus neque sit amet tincidunt. Duis sed ante sit amet ante tristique tristique. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas massa dui, consequat sed sem nec, pellentesque gravida mi. Sed id libero quis arcu sodales hendrerit. Donec vel dictum magna. Mauris mollis mattis enim, quis luctus sapien fermentum vitae. Mauris pellentesque, justo ac vehicula ultrices, dolor erat blandit est, ut tincidunt nibh libero quis felis. Vivamus in laoreet mi, vel posuere risus. Nunc aliquam sapien et libero hendrerit posuere. Nullam egestas, lectus et posuere accumsan, lacus leo facilisis leo, ac lobortis diam diam non lacus. Proin convallis est at sodales dignissim. Etiam ut bibendum ipsum. Nunc in vulputate ex.`,
+            coverImage: "image-22.jpg",
+            images: [
+                { filename: "image-21.jpg", caption: "21 image" },
+                { filename: "image-22.jpg", caption: "22 image" },
+                { filename: "image-23.jpg", caption: "23 image" }
+            ]
+        }
+    ];
+
+var loc = window.location.pathname;
+if (!loc.includes('blog-detail')) {
+    // On blog page
     _addBlogsToDocument(myBlogs);
-})
+}
+else {
+    // On blog detail page
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const blogId = urlParams.get('blogId')
+    if (blogId)
+        _addBlogDetailsToDocument(myBlogs[blogId]);
+}
+
+
 
 function _addBlogsToDocument(myBlogs) {
     let blogContainer = document.getElementById("blogs");
@@ -40,7 +65,7 @@ function _addBlogsToDocument(myBlogs) {
         blogWrapper.appendChild(title);
         // Left col
         let leftCol = document.createElement('div');
-        leftCol.className = "col-md-7 ta-center";
+        leftCol.className = "col-md-8 ta-center";
         blogWrapper.appendChild(leftCol);
         // Blog text
         let blogText = document.createElement('p');
@@ -54,7 +79,7 @@ function _addBlogsToDocument(myBlogs) {
         leftCol.appendChild(moreButton);
         // Right col
         let rightCol = document.createElement('div');
-        rightCol.className = 'col-md-5';
+        rightCol.className = 'col-md-4';
         blogWrapper.appendChild(rightCol);
         // Cover image
         let coverImg = document.createElement('img');
@@ -70,78 +95,45 @@ function onBlogNavClicked(e) {
 
 function onBlogReadMoreClicked(e) {
     console.log("Blog clicked");
+    let blogId = e.target.blogId;
     console.log(e.target.blogId);
+    console.log(myBlogs[blogId])
+
+    window.location.href = `blog-detail.html?blogId=${blogId}`;
 }
 
-// $(() => {
-//     let stickyTop = 0,
-//         scrollTarget = false
+function _addBlogDetailsToDocument(blog) {
+    let blogDetailContainer = document.getElementById("blog-details");
 
-//     let timeline = $('.timeline__nav'),
-//         items = $('li', timeline),
-//         milestones = $('.timeline__section .milestone'),
-//         offsetTop = parseInt(timeline.css('top'))
+    let title = document.createElement('h2');
+    title.innerText = blog.title;
+    blogDetailContainer.appendChild(title);
 
-//     const TIMELINE_VALUES = {
-//         start: 190,
-//         step: 30
-//     }
+    let date = document.createElement('h4');
+    date.innerText = blog.date;
+    blogDetailContainer.appendChild(date);
 
-//     $(window).resize(function () {
-//         timeline.removeClass('fixed')
+    let blogText = document.createElement('p');
+    blogText.innerText = blog.text;
+    blogDetailContainer.appendChild(blogText);
 
-//         stickyTop = timeline.offset().top - offsetTop
+    let imagesContainer = document.createElement('div');
+    imagesContainer.className = 'blog-images-container';
+    blogDetailContainer.appendChild(imagesContainer);
 
-//         $(window).trigger('scroll')
-//     }).trigger('resize')
+    blog.images.forEach(function (image) {
+        let imageWrapper = document.createElement('div')
+        imageWrapper.className = 'image-wrapper';
+        imagesContainer.appendChild(imageWrapper);
 
-//     $(window).scroll(function () {
-//         if ($(window).scrollTop() > stickyTop) {
-//             timeline.addClass('fixed')
-//         } else {
-//             timeline.removeClass('fixed')
-//         }
-//     }).trigger('scroll')
+        let img = document.createElement('img')
+        img.src = `images/blogs/${blog.id}/${image.filename}`;
+        imageWrapper.appendChild(img);
 
-//     items.find('span').click(function () {
-//         let li = $(this).parent(),
-//             index = li.index(),
-//             milestone = milestones.eq(index)
-
-//         if (!li.hasClass('active') && milestone.length) {
-//             scrollTarget = index
-
-//             let scrollTargetTop = milestone.offset().top - 80
-
-//             $('html, body').animate({ scrollTop: scrollTargetTop }, {
-//                 duration: 400,
-//                 complete: function complete() {
-//                     scrollTarget = false
-//                 }
-//             })
-//         }
-//     })
-
-//     $(window).scroll(function () {
-//         let viewLine = $(window).scrollTop() + $(window).height() / 3,
-//             active = -1
-
-//         if (scrollTarget === false) {
-//             milestones.each(function () {
-//                 if ($(this).offset().top - viewLine > 0) {
-//                     return false
-//                 }
-
-//                 active++
-//             })
-//         } else {
-//             active = scrollTarget
-//         }
-
-//         timeline.css('top', -1 * active * TIMELINE_VALUES.step + TIMELINE_VALUES.start + 'px')
-
-//         items.filter('.active').removeClass('active')
-
-//         items.eq(active != -1 ? active : 0).addClass('active')
-//     }).trigger('scroll')
-// })
+        if (image.caption) {
+            let caption = document.createElement('span')
+            caption.innerText = image.caption;
+            imageWrapper.appendChild(caption);
+        }
+    });
+}
