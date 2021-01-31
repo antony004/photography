@@ -51,6 +51,8 @@ else {
     const blogId = urlParams.get('blogId')
     if (blogId)
         _addBlogDetailsToDocument(myBlogs[blogId]);
+    else
+        window.location.replace('blog.html'); // If no paramater, then redirect to blog page
 }
 
 
@@ -77,6 +79,10 @@ function _addBlogsToDocument(myBlogs) {
         let title = document.createElement("h2");
         title.innerText = blog.title;
         blogWrapper.appendChild(title);
+        // Date
+        let date = document.createElement("h4");
+        date.innerText = blog.date;
+        blogWrapper.appendChild(date);
         // Left col
         let leftCol = document.createElement('div');
         leftCol.className = "col-md-8 ta-center";

@@ -128,7 +128,7 @@ footer {
 }
 
 #home-container .hc-2:hover.hc-left > button {
-  transform: translateX(-30%);
+  left: 35%;
 }
 
 #home-container .hc-2:hover.hc-top > button {
@@ -136,7 +136,7 @@ footer {
 }
 
 #home-container .hc-2:hover.hc-right > button {
-  transform: translateX(-70%);
+  left: 65%;
 }
 
 #home-container .hc-2:hover.hc-bot > button {
@@ -160,8 +160,14 @@ footer {
   color: white;
   border: none;
   font-size: 2em;
-  transition: transform 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   font-family: Yeseva;
+}
+
+@media (max-width: 480px) {
+  #home-container a div button {
+    font-size: 1.6em;
+  }
 }
 
 /* Left triangle */
@@ -175,7 +181,8 @@ footer {
 
 .hc-left > button {
   top: calc(50% - 0.5em);
-  left: 25%;
+  left: 40%;
+  transform: translateX(-100%);
 }
 
 /* Top triangle */
@@ -204,8 +211,7 @@ footer {
 
 .hc-right > button {
   top: calc(50% - 0.5em);
-  left: 75%;
-  transform: translateX(-100%);
+  left: 60%;
 }
 
 /* Bottom triangle */
@@ -308,6 +314,8 @@ footer {
   background-color: transparent;
   border: none;
   font-size: 2em;
+  position: relative;
+  right: -10px;
 }
 
 #about-container > .ab-inner > div {
