@@ -13,6 +13,16 @@ footer {
   border-bottom-color: #f5f5f5;
 }
 
+.mobile-nav-outer {
+  display: none;
+}
+
+.mobile-nav-inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 .starter-template {
   text-align: center;
   background-color: #fafafa;
