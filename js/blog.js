@@ -39,6 +39,7 @@ let myBlogs =
         }
     ];
 
+// This automaitcally gets called when the script loads since it isn't nested
 var loc = window.location.pathname;
 if (!loc.includes('blog-detail')) {
     // On blog page
