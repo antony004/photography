@@ -1,0 +1,149 @@
+.blog-container {
+  margin: 0 150px;
+}
+@media (max-width: 768px) {
+  .blog-container {
+    margin: 0 15px 0 110px;
+  }
+}
+
+.timeline-nav {
+  position: fixed;
+  top: 180px;
+  width: 130px;
+  /* transform: translateY(-50%); */
+  max-height: 90vh;
+  padding: 0 20px;
+  overflow: scroll;
+}
+
+.timeline-nav ul {
+  list-style: none;
+  list-style-position: inside;
+  margin: 15px 0;
+  width: 100%;
+  padding-inline-start: unset;
+}
+.timeline-nav ul li {
+  margin: 15px 0;
+  padding-left: 0;
+  list-style-type: none;
+  color: #bfc1c3;
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.timeline-nav ul li:hover {
+  font-weight: bold;
+  color: #f94125;
+  border-bottom: 1px dotted transparent;
+  transform: scale(1.2);
+}
+
+.blog-wrapper {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.3);
+  margin: unset;
+}
+
+.blog-wrapper h2 {
+  margin: 20px 0 0 0;
+  text-align: center;
+}
+
+.blog-wrapper h4 {
+  margin: 0 0 20px 0;
+  text-align: center;
+  color: rgb(109, 109, 109);
+}
+
+.blog-wrapper .ta-center {
+  text-align: center;
+}
+
+.blog-wrapper p {
+  max-height: 11em;
+  /* hide text if it more than N lines  */
+  overflow: hidden;
+  /* for set '...' in absolute position */
+  position: relative;
+  /* use this value to count block height */
+  line-height: 1.4em;
+  /* fix problem when last visible word doesn't adjoin right side  */
+  text-align: justify;
+  margin-right: -1em;
+  padding-right: 1em;
+  font-size: 1.2em;
+}
+
+.blog-wrapper p:before {
+  /* points in the end */
+  content: "...";
+  /* absolute position */
+  position: absolute;
+  /* set position to right bottom corner of block */
+  right: 0;
+  bottom: 0;
+  /* font-size: 1.2em; */
+}
+.blog-wrapper p:after {
+  /* points in the end */
+  content: "";
+  /* absolute position */
+  position: absolute;
+  /* set position to right bottom corner of text */
+  right: 0;
+  width: 1em;
+  /* set width and height */
+  height: 1em;
+  margin-top: 0.2em;
+  background: white;
+  /* font-size: 1.2em; */
+}
+
+.blog-wrapper img {
+  max-height: 240px;
+  max-width: 100%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Small screens, laptops (1024px and up) */
+@media (max-width: 1024px) {
+  .blog-wrapper img {
+    max-height: 180px;
+  }
+}
+
+.blog-wrapper button {
+  background-color: unset;
+  border: none;
+  color: deepskyblue;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.blog-detail-wrapper {
+  text-align: center;
+}
+
+.blog-detail-wrapper p {
+  margin: 40px 0;
+  text-align: left;
+}
+
+.blog-images-container .image-wrapper {
+  width: 100%;
+  margin-bottom: 80px;
+}
+
+.blog-images-container .image-wrapper img {
+  object-fit: contain;
+  width: 100%;
+}
+
+.blog-images-container .image-wrapper caption {
+  font-size: 1.2em;
+}
