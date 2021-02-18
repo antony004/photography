@@ -136,6 +136,14 @@ function _addBlogDetailsToDocument(blog) {
     date.innerText = blog.date;
     blogDetailContainer.appendChild(date);
 
+    let video = document.createElement('video');
+    video.controls = true;
+    let source = document.createElement('source');
+    source.src = "movie.mp4";
+    source.type = "video/mp4";
+    video.appendChild(source);
+    blogDetailContainer.appendChild(video);
+
     let blogText = document.createElement('p');
     blogText.innerText = blog.text;
     blogDetailContainer.appendChild(blogText);
