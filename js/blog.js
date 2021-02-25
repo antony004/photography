@@ -4,12 +4,13 @@ let myBlogs =
             id: 0,
             title: "My First Blog",
             date: "Jan 21 2020",
-            text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et magna vitae metus fermentum interdum. Nulla sapien turpis, ultricies sit amet tristique id, congue eu mauris. Donec fringilla leo a augue congue, non interdum lorem bibendum. Vivamus lobortis nulla mi, in auctor enim rutrum quis. Nunc luctus orci et mi cursus congue. Pellentesque ultrices mi vitae maximus ullamcorper. Aliquam neque lectus, aliquet sit amet scelerisque nec, facilisis in metus. Sed nec diam sed urna rutrum lobortis. `,
+            text: `This is a <a href="www.google.com">link to google</a> and this is a link to <a href="www.facebook.com">facebook</a>. Cool right?`,
             coverImage: "image-19.jpg",
             images: [
                 { filename: "image-19.jpg", caption: "19 image" },
                 { filename: "image-20.jpg", caption: "20 image" }
-            ]
+            ],
+            video: "movie.mp4"
         },
 
         {
@@ -105,7 +106,7 @@ function _addBlogsToDocument(myBlogs) {
         // Cover image
         let coverImg = document.createElement('img');
         coverImg.className = "hidden-xs";
-        coverImg.src = `images/blogs/${blog.id}/${blog.coverImage}`;
+        coverImg.src = `media/blogs/${blog.id}/${blog.coverImage}`;
         rightCol.appendChild(coverImg);
     });
 }
@@ -136,16 +137,43 @@ function _addBlogDetailsToDocument(blog) {
     date.innerText = blog.date;
     blogDetailContainer.appendChild(date);
 
-    let video = document.createElement('video');
-    video.controls = true;
-    let source = document.createElement('source');
-    source.src = "movie.mp4";
-    source.type = "video/mp4";
-    video.appendChild(source);
-    blogDetailContainer.appendChild(video);
+    if (blog.video) {
+        let video = document.createElement('video');
+        video.controls = true;
+        let source = document.createElement('source');
+        source.src = blog.video;
+        source.type = "video/mp4";
+        video.appendChild(source);
+        blogDetailContainer.appendChild(video);
+    }
 
-    let blogText = document.createElement('p');
-    blogText.innerText = blog.text;
+    let blogText = document.createElement('div');
+    blogText.className = 'blog-text';
+    //blogText.innerText = blog.text;
+    var reg = /(<a href=".*?">.*?<\/a>)/gm;
+    let splitText = blog.text.split(reg); // Convert text into array of groupings
+    //console.log(splitText);
+    splitText.forEach(group => {
+        if (reg.test(group)) {
+            // this is a link tag
+            let linkTag = document.createElement('a');
+            linkTag.innerText = blog.text;
+            let linkMatch = /"(.*?)"/m.exec(group); // get the website
+            linkTag.href = `//${linkMatch[1]}`;
+            let textMatch = />(.*?)<\/a>/m.exec(group); // get the inner text
+            //console.log(textMatch);
+            linkTag.innerText = textMatch[1];
+            linkTag.style.display = 'inline';
+            blogText.appendChild(linkTag);
+        } else {
+            // this is regular text
+            let blogInnerText = document.createElement('span');
+            blogInnerText.innerText = group;
+            blogInnerText.style.display = 'inline';
+            blogText.appendChild(blogInnerText);
+        }
+    });
+    //console.log(blogText)
     blogDetailContainer.appendChild(blogText);
 
     let imagesContainer = document.createElement('div');
@@ -158,7 +186,7 @@ function _addBlogDetailsToDocument(blog) {
         imagesContainer.appendChild(imageWrapper);
 
         let img = document.createElement('img')
-        img.src = `images/blogs/${blog.id}/${image.filename}`;
+        img.src = `media/blogs/${blog.id}/${image.filename}`;
         imageWrapper.appendChild(img);
 
         if (image.caption) {
