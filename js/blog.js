@@ -149,7 +149,6 @@ function _addBlogDetailsToDocument(blog) {
 
     let blogText = document.createElement('div');
     blogText.className = 'blog-text';
-    //blogText.innerText = blog.text;
     var reg = /(<a href=".*?">.*?<\/a>)/gm;
     let splitText = blog.text.split(reg); // Convert text into array of groupings
     //console.log(splitText);
