@@ -129,7 +129,7 @@
   text-align: center;
 }
 
-.blog-detail-wrapper p {
+.blog-detail-wrapper div.blog-text {
   margin: 40px 0;
   text-align: left;
 }

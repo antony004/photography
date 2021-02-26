@@ -36,7 +36,7 @@ Good luck on your surfing journey! Have fun out there and be safe. Oh! Almost fo
                 { filename: "image-001.jpg" },
                 { filename: "image-002.jpg" },
                 { filename: "image-003.jpg" }
-                
+
             ]
         },
 
@@ -133,7 +133,7 @@ function _addBlogsToDocument(myBlogs) {
         // Cover image
         let coverImg = document.createElement('img');
         coverImg.className = "hidden-xs";
-        coverImg.src = `images/blogs/${blog.id}/${blog.coverImage}`;
+        coverImg.src = `media/blogs/${blog.id}/${blog.coverImage}`;
         rightCol.appendChild(coverImg);
     });
 }
@@ -164,8 +164,42 @@ function _addBlogDetailsToDocument(blog) {
     date.innerText = blog.date;
     blogDetailContainer.appendChild(date);
 
-    let blogText = document.createElement('p');
-    blogText.innerText = blog.text;
+    if (blog.video) {
+        let video = document.createElement('video');
+        video.controls = true;
+        let source = document.createElement('source');
+        source.src = blog.video;
+        source.type = "video/mp4";
+        video.appendChild(source);
+        blogDetailContainer.appendChild(video);
+    }
+
+    let blogText = document.createElement('div');
+    blogText.className = 'blog-text';
+    var reg = /(<a href=".*?">.*?<\/a>)/gm;
+    let splitText = blog.text.split(reg); // Convert text into array of groupings
+    //console.log(splitText);
+    splitText.forEach(group => {
+        if (reg.test(group)) {
+            // this is a link tag
+            let linkTag = document.createElement('a');
+            linkTag.innerText = blog.text;
+            let linkMatch = /"(.*?)"/m.exec(group); // get the website
+            linkTag.href = `//${linkMatch[1]}`;
+            let textMatch = />(.*?)<\/a>/m.exec(group); // get the inner text
+            //console.log(textMatch);
+            linkTag.innerText = textMatch[1];
+            linkTag.style.display = 'inline';
+            blogText.appendChild(linkTag);
+        } else {
+            // this is regular text
+            let blogInnerText = document.createElement('span');
+            blogInnerText.innerText = group;
+            blogInnerText.style.display = 'inline';
+            blogText.appendChild(blogInnerText);
+        }
+    });
+    //console.log(blogText)
     blogDetailContainer.appendChild(blogText);
 
     let imagesContainer = document.createElement('div');
@@ -178,7 +212,7 @@ function _addBlogDetailsToDocument(blog) {
         imagesContainer.appendChild(imageWrapper);
 
         let img = document.createElement('img')
-        img.src = `images/blogs/${blog.id}/${image.filename}`;
+        img.src = `media/blogs/${blog.id}/${image.filename}`;
         imageWrapper.appendChild(img);
 
         if (image.caption) {

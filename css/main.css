@@ -111,6 +111,7 @@ footer {
   z-index: 3;
   font-family: Playball;
   text-align: center;
+  width: fit-content;
 }
 
 /* Image container */
@@ -143,7 +144,7 @@ footer {
 }
 
 #home-container .hc-2:hover.hc-top > button {
-  transform: translate(-50%, -30%);
+  transform: translate(-50%, -50%);
 }
 
 #home-container .hc-2:hover.hc-right > button {
@@ -151,7 +152,7 @@ footer {
 }
 
 #home-container .hc-2:hover.hc-bot > button {
-  transform: translate(-50%, 30%);
+  transform: translate(-50%, -50%);
 }
 
 /* Common image css */
@@ -206,7 +207,7 @@ footer {
 }
 
 .hc-top > button {
-  top: calc(25% + 2em);
+  top: calc(25%);
   left: 50%;
   transform: translateX(-50%);
 }
@@ -235,9 +236,9 @@ footer {
 }
 
 .hc-bot > button {
-  top: calc(75% - 2em);
+  top: calc(75%);
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -100%);
 }
 
 /* White diag lines */
