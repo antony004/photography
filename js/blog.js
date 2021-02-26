@@ -11,7 +11,7 @@ Locations and conditions
 *Although all of the Great Lakes are surfable, this will be focused on Lake Michigan. Could possibly do an update once I venture out to the other lakes.
 
 The short: look for the jetties.
-The long: look for the jetties. They make it easier and less tiring to paddle out. The current along them will pull you in further to the deep and all there is to do is lay on the board and enjoy the ride. A couple popular beaches with a few of them also happen to have surf shops nearby, <a href="https://www.lakeeffectsurfshop.com> Lake Effect shop in Milwaukee, WI </a> and {link} Third Coast shop in St. Joseph, MI. They will be glad to guide anyone in the process of getting started. If you want to try the sport, they have the equipment to rent for a day. If you happen to fall in love with it, then it’s highly recommended to invest in your own gear. That way you can explore different parts of the lake.
+The long: look for the jetties. They make it easier and less tiring to paddle out. The current along them will pull you in further to the deep and all there is to do is lay on the board and enjoy the ride. A couple popular beaches with a few of them also happen to have surf shops nearby, <a href="https://www.lakeeffectsurfshop.com"> Lake Effect shop in Milwaukee, WI </a> and {link} Third Coast shop in St. Joseph, MI. They will be glad to guide anyone in the process of getting started. If you want to try the sport, they have the equipment to rent for a day. If you happen to fall in love with it, then it’s highly recommended to invest in your own gear. That way you can explore different parts of the lake.
 
 Once you have your own gear the next thing is to know which spots work best for certain wind directions. Have in mind that lake waves are created by the winds, unlike the ocean where they’re usually caused by storm swells. {bold text} <b> Typically, if you’re on the West side of the lake, North and Northeast winds will allow it to get clean, long waves. Whereas North, Northwest winds will do the trick for the East shore </b> {/bold text}. To see wave and wind reports check out {link} this page. Anywhere from 4 ft to 9 ft waves are ideal to go out in. Anything above that and you’re running the risk of getting injured or even drowning. Oh! Speaking of that - try to bring someone with you when possible. If anything were to go wrong they can be there to assist in any way. Remember that lifeguards are off duty in the winter and the majority of the public is inside their cozy homes. There is more technicality to the winds, but for the most part that rule of thumb will get you out catching waves. Not going to say choppy or washing machine waves are not fun to be out in either. You would just have to be in tip-top condition to be fast enough to get back on the board repeatedly. Not to mention the endurance needed for such task.
 
@@ -178,14 +178,14 @@ function _addBlogDetailsToDocument(blog) {
     blogText.className = 'blog-text';
     var reg = /(<a href=".*?">.*?<\/a>)/gm;
     let splitText = blog.text.split(reg); // Convert text into array of groupings
-    //console.log(splitText);
+    console.log(splitText);
     splitText.forEach(group => {
         if (reg.test(group)) {
             // this is a link tag
             let linkTag = document.createElement('a');
             linkTag.innerText = blog.text;
             let linkMatch = /"(.*?)"/m.exec(group); // get the website
-            linkTag.href = `//${linkMatch[1]}`;
+            linkTag.href = `${linkMatch[1]}`;
             let textMatch = />(.*?)<\/a>/m.exec(group); // get the inner text
             //console.log(textMatch);
             linkTag.innerText = textMatch[1];
