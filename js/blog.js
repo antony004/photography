@@ -13,10 +13,14 @@ let myBlogs =
 
 <<<<<<< Updated upstream
 The short: look for the jetties.
+<<<<<<< HEAD
 The long: look for the jetties. They make it easier and less tiring to paddle out. The current along them will pull you in further to the deep and all there is to do is lay on the board and enjoy the ride. A couple popular beaches with a few of them also happen to have surf shops nearby, <a href="https://www.lakeeffectsurfshop.com"> Lake Effect shop in Milwaukee, WI </a> and {link} Third Coast shop in St. Joseph, MI. They will be glad to guide anyone in the process of getting started. If you want to try the sport, they have the equipment to rent for a day. If you happen to fall in love with it, then it’s highly recommended to invest in your own gear. That way you can explore different parts of the lake.
 =======
             {bold text} When selecting surfboards, it is recommended to start longer in length and as one’s skills improve, transition to a short board {\bold text}. A great board for beginners would be a {link} foam longboard with a three-fin setup (more on fins {link: https://swellsurfcamp.com/surfboard-fins/} here), which can be found at a fraction of the price of a hardtop board. When starting with a foam board, if collisions do occur, it will be less painful for you as well as your wallet. Longboards make it easier to catch waves of all sizes thus allowing for more practice time. While longboards have many advantages, deciding to use a shortboard can also provide great learning opportunities. If you consider yourself to be athletic, there is a higher chance that the shortboard won’t be as difficult to learn on. Despite physical ability, be advised that surfing does require a lot of patience in order to fully understand the rhythm of the waves and to be able to determine the “pop-up”, or the movement done to quickly stand up on the board. If patience is not one of your strengths, it is advised to start with a longboard. Regardless of the length, most board purchases will include the fins and potentially the leash. The final touch in completing the board setup will be the wax used to enhance traction. While there are a lot of brands out there, selecting any one that reads “extra cold” will be the best option for the great lakes. An optional item is earplugs, as surfing for extended periods of time in cold water can cause surfer’s ear. This is a condition where extra bone forms as lumps inside the ear canal, which is believed to be the body’s defense mechanism to protect the eardrum from extreme water temperatures and strong winds. One is able to get these and other items on the list online or at the local surf shop.
 >>>>>>> Stashed changes
+=======
+The long: look for the jetties. They make it easier and less tiring to paddle out. The current along them will pull you in further to the deep and all there is to do is lay on the board and enjoy the ride. A couple popular beaches with a few of them also happen to have surf shops nearby, <a href="https://www.lakeeffectsurfshop.com> Lake Effect shop in Milwaukee, WI </a> and {link} Third Coast shop in St. Joseph, MI. They will be glad to guide anyone in the process of getting started. If you want to try the sport, they have the equipment to rent for a day. If you happen to fall in love with it, then it’s highly recommended to invest in your own gear. That way you can explore different parts of the lake.
+>>>>>>> parent of 4825fd9 (small bug fix)
 
             Lake Michigan has some popular beaches with surf shops nearby such as {link} The Lake Effect shop in Milwaukee, WI, offering everything from window decals to hardtop boards. Jake, the owner, is an eccentric person that has surfed most of his life and is eager to discuss his great knowledge of the sport. The {link} Third Coast shop in St. Joseph, MI has all types of gear for surfing, and even branches out to snowboarding and sand boarding. The manager, Dee, has a passion for surfing with a laidback style that puts even the most novice surfer at ease when discussing gear selection or surfing technique. Both shops have the complete surfing equipment necessary to rent for a day if purchasing the gear isn’t desired. If you do fall in love with surfing, it’s highly recommended to invest in your own gear down the road. It enables one to explore different parts of the lake with flexibility according to one’s schedule. 
 
@@ -178,14 +182,14 @@ function _addBlogDetailsToDocument(blog) {
     blogText.className = 'blog-text';
     var reg = /(<a href=".*?">.*?<\/a>)/gm;
     let splitText = blog.text.split(reg); // Convert text into array of groupings
-    console.log(splitText);
+    //console.log(splitText);
     splitText.forEach(group => {
         if (reg.test(group)) {
             // this is a link tag
             let linkTag = document.createElement('a');
             linkTag.innerText = blog.text;
             let linkMatch = /"(.*?)"/m.exec(group); // get the website
-            linkTag.href = `${linkMatch[1]}`;
+            linkTag.href = `//${linkMatch[1]}`;
             let textMatch = />(.*?)<\/a>/m.exec(group); // get the inner text
             //console.log(textMatch);
             linkTag.innerText = textMatch[1];
